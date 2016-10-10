@@ -17,20 +17,20 @@ JsbIotSensorRadioRF24L01::JsbIotSensorRadioRF24L01(
 
 void JsbIotSensorRadioRF24L01::begin(){
 	//Inicializa a comunicacao
-  _radio.begin();
+	_radio.begin();
 
 	if(_ativarLog){
 		Serial.println("Entrando em modo de transmissão");
 	}
-  //Entra em modo de transmissao
-  _radio.openWritingPipe(_pipe);
+	//Entra em modo de transmissao
+	_radio.openWritingPipe(_pipe);
 
 	if(_ativarLog){
 		Serial.println("Entrando em modo de recepção");
 	}
 	//Entra em modo de recepcao
-  _radio.openReadingPipe(1,_pipe);
-  _radio.startListening();
+	_radio.openReadingPipe(1,_pipe);
+	_radio.startListening();
 	_radio.printDetails();
 
 	if(_ativarLog){
@@ -67,7 +67,7 @@ RF24 JsbIotSensorRadioRF24L01::getRadio(){
 
 void JsbIotSensorRadioRF24L01::iniciarRecepcaoDeDados(){
 	//Verifica se ha sinal de radio
-  if (_radio.available()) {
+	if (_radio.available()) {
 		_radio.read(&_dadosRecebidos, sizeof(_dadosRecebidos));
 
 		if(_ativarLog){

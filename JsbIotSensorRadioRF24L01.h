@@ -20,11 +20,11 @@ class JsbIotSensorRadioRF24L01{
 	public:
 		JsbIotSensorRadioRF24L01(short pinEntrada,
 			short pinSaida, uint64_t pipe);
-    void ativarLog();
-  	void desativarLog();
-    //void enviarDados(JsbIotSensorRadioRF24L01Helper);
+		void ativarLog();
+		void desativarLog();
+		//void enviarDados(JsbIotSensorRadioRF24L01Helper);
 		void enviarDados(char[]);
-    void iniciarRecepcaoDeDados();
+		void iniciarRecepcaoDeDados();
 		RF24 getRadio();
 		void begin();
 
@@ -32,7 +32,7 @@ class JsbIotSensorRadioRF24L01{
 		short _pinEntrada;
 		short _pinSaida;
 		short _pipe;
-    bool _ativarLog;
+		bool _ativarLog;
 		void imprimirDados();
 
 		//JsbIotSensorRadioRF24L01Helper _dadosRecebidos;
