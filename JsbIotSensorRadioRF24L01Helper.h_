@@ -1,0 +1,40 @@
+#ifndef JsbIotSensorRadioRF24L01Helper_h
+#define JsbIotSensorRadioRF24L01Helper_h
+
+class JsbIotSensorRadioRF24L01Helper{
+  public:
+    JsbIotSensorRadioRF24L01Helper();
+    JsbIotSensorRadioRF24L01Helper(String comando, String valor);
+    String getComando();
+    String getValor();
+    void setComando(String comando);
+    void setValor(String valor);
+  private:
+    String _comando;
+    String _valor;
+};
+
+JsbIotSensorRadioRF24L01Helper::JsbIotSensorRadioRF24L01Helper(){}
+
+JsbIotSensorRadioRF24L01Helper::JsbIotSensorRadioRF24L01Helper(String comando, String valor){
+ _comando = comando;
+ _valor = valor;
+}
+
+String JsbIotSensorRadioRF24L01Helper::getComando(){
+  return _comando;
+}
+
+String JsbIotSensorRadioRF24L01Helper::getValor(){
+  return _valor;
+}
+
+void JsbIotSensorRadioRF24L01Helper::setComando(String comando){
+  _comando = comando;
+}
+
+void JsbIotSensorRadioRF24L01Helper::setValor(String valor){
+  _valor = valor;
+}
+
+#endif

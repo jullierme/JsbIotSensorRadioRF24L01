@@ -1,0 +1,7 @@
+JsbIotSensorRadioRF24L01	KEYWORD1
+ativarLog	KEYWORD2
+desativarLog	KEYWORD3
+enviarDados	KEYWORD4
+iniciarRecepcaoDeDados	KEYWORD5
+getRadio	KEYWORD6
+begin	KEYWORD7
