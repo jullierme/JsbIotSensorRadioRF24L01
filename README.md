@@ -2,7 +2,9 @@
 Recebe e envia dados na frequência 2.4Ghz, utilizando o módulo
 RF24L01 Wi-Fi
 
+Os dados enviados ou recebidos devem ser sempre um array de char (char[]) de no
+máximo 32 posições (char[32])
+
+
 Utiliza a biblioteca CapacitiveSensor
 Licença MIT
-
-http://forum.arduino.cc/index.php?topic=83211.0

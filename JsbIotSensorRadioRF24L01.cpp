@@ -18,16 +18,15 @@ JsbIotSensorRadioRF24L01::JsbIotSensorRadioRF24L01(
 void JsbIotSensorRadioRF24L01::begin(){
 	//Inicializa a comunicacao
   _radio.begin();
-	//_radio.setPayloadSize(32);
 
 	if(_ativarLog){
-		Serial.println("Entrando em modo de transmissao");
+		Serial.println("Entrando em modo de transmissão");
 	}
   //Entra em modo de transmissao
   _radio.openWritingPipe(_pipe);
 
 	if(_ativarLog){
-		Serial.println("Entrando em modo de recepcao");
+		Serial.println("Entrando em modo de recepção");
 	}
 	//Entra em modo de recepcao
   _radio.openReadingPipe(1,_pipe);
@@ -50,15 +49,16 @@ void JsbIotSensorRadioRF24L01::desativarLog(){
 void JsbIotSensorRadioRF24L01::enviarDados(char dados[]){
 	if(_ativarLog){
 		Serial.println("Enviando dados ");
-		Serial.print("comando ");
-		Serial.println(dados[0]);
-		Serial.print(" valor ");
-		Serial.println(dados[1]);
+		imprimirDados();
 	}
 
 	_radio.stopListening();
 	_radio.write(dados, sizeof(dados));
 	_radio.startListening();
+
+	if(_ativarLog){
+		Serial.println("Dados enviados!!!");
+	}
 }
 
 RF24 JsbIotSensorRadioRF24L01::getRadio(){
@@ -68,29 +68,24 @@ RF24 JsbIotSensorRadioRF24L01::getRadio(){
 void JsbIotSensorRadioRF24L01::iniciarRecepcaoDeDados(){
 	//Verifica se ha sinal de radio
   if (_radio.available()) {
-		if(_ativarLog){
-			Serial.println("");
-			Serial.println("Dados recebidos");
-			Serial.println("");
-		}
-
 		_radio.read(&_dadosRecebidos, sizeof(_dadosRecebidos));
 
-		imprimirDados();
+		if(_ativarLog){
+			Serial.println("Dados recebidos ");
+			imprimirDados();
+		}
 	}
 }
 
 void JsbIotSensorRadioRF24L01::imprimirDados(){
-	if(_ativarLog){
-		int x;
+	int x;
 
-		for(x = 0; x < sizeof(_dadosRecebidos); x ++){
-			if(_dadosRecebidos[x] != NULL){
-				Serial.print("Valor posição ");
-				Serial.print(x);
-				Serial.print(": ");
-				Serial.println(_dadosRecebidos[x]);
-			}
+	for(x = 0; x < sizeof(_dadosRecebidos); x ++){
+		if(_dadosRecebidos[x] != NULL){
+			Serial.print("Valor posição ");
+			Serial.print(x);
+			Serial.print(": ");
+			Serial.println(_dadosRecebidos[x]);
 		}
 	}
 }
