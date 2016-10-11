@@ -22,7 +22,6 @@ void setup(){
 
   //sensorRadio.ativarLog();
   sensorRadio.begin();
-
 	sensorRadio.onDadosRetornados(onReceberDados);
 }
 
@@ -39,6 +38,5 @@ void onReceberDados(char dados[]){
 
 void loop(){
   sensorRadio.iniciarRecepcaoDeDados();
-
 	delay(100);
 }

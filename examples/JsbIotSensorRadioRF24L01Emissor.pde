@@ -47,5 +47,6 @@ void enviarDados(char comando, char valor){
 	dados[0] = comando;
 	dados[1] = valor;
 	sensorRadio.enviarDados(dados);
+
 	delay(300);
 }
