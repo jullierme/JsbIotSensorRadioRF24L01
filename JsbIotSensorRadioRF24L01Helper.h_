@@ -1,3 +1,11 @@
+// no arquivo .h
+//public:
+  //void enviarDados(JsbIotSensorRadioRF24L01Helper);
+
+//private:
+  //JsbIotSensorRadioRF24L01Helper _dadosRecebidos;
+//-----------------------------
+
 #ifndef JsbIotSensorRadioRF24L01Helper_h
 #define JsbIotSensorRadioRF24L01Helper_h
 

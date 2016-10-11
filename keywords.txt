@@ -5,3 +5,4 @@ enviarDados	KEYWORD4
 iniciarRecepcaoDeDados	KEYWORD5
 getRadio	KEYWORD6
 begin	KEYWORD7
+onDadosRetornados KEYWORD8

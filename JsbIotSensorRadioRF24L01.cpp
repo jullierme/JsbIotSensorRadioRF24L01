@@ -70,11 +70,19 @@ void JsbIotSensorRadioRF24L01::iniciarRecepcaoDeDados(){
 	if (_radio.available()) {
 		_radio.read(&_dadosRecebidos, sizeof(_dadosRecebidos));
 
+		if(_onDadosRetornados != NULL){
+				_onDadosRetornados(_dadosRecebidos);
+		}
+
 		if(_ativarLog){
 			Serial.println("Dados recebidos ");
 			imprimirDados();
 		}
 	}
+}
+
+void JsbIotSensorRadioRF24L01::onDadosRetornados(vFChar metodo){
+	_onDadosRetornados = metodo;
 }
 
 void JsbIotSensorRadioRF24L01::imprimirDados(){
