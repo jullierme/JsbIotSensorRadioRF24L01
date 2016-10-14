@@ -9,11 +9,10 @@ const uint64_t _pipe = 0x4a7362496f74;
 int pino_botao1 = 3;
 int pino_botao2 = 4;
 
-/*
-Exemplo que envia dados via RF24 ao clicar em um dos dois botões disponíveis
-*/
+const uint64_t _pipeEscrita = 0x4a53424c;
+
 JsbIotSensorRadioRF24L01 sensorRadio = JsbIotSensorRadioRF24L01(_pinRadioEntrada,
-	_pinRadioSaida, _pipe);
+	_pinRadioSaida, _pipeEscrita, NULL);
 
 void setup()
 {
@@ -33,20 +32,19 @@ void loop()
 {
   if (digitalRead(pino_botao1) == HIGH){
     Serial.println("Botao 1 pressionado !");
-    enviarDados('A','D');
+    enviarDados('L','D');
   }
 
   if (digitalRead(pino_botao2) == HIGH){
     Serial.println("Botao 2 pressionado !");
-    enviarDados('B','C');
+    enviarDados('D','C');
   }
 }
 
 void enviarDados(char comando, char valor){
-	char dados[32];//poderia enviar até 32 caracters
+	char dados[32];
 	dados[0] = comando;
 	dados[1] = valor;
 	sensorRadio.enviarDados(dados);
-
 	delay(300);
 }
