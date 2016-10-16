@@ -30,8 +30,8 @@ class JsbIotSensorRadioRF24L01{
 		vFChar _onDadosRetornados;
 		short _pinEntrada;
 		short _pinSaida;
-		short _pipeEscrita = NULL;
-		short _pipeLeitura = NULL;
+		uint64_t _pipeEscrita = NULL;
+		uint64_t _pipeLeitura = NULL;
 		bool _ativarLog = false;
 		char _dadosRecebidos[32];//a lib RF24 só envia 32 bytes de cada vez
 		RF24 _radio = RF24(9,10);
